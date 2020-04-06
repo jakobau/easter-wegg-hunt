@@ -1,0 +1,25 @@
+{
+  "name": "easter-wegg-hunt",
+  "version": "1.0.0",
+  "description": "Online easter egg hunt website platform for people and families that are social distancing! Find all the eggs in popular websites by solving riddles, puzzles, math problems, matching memes, and tapping randomly.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakobau/easter-wegg-hunt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakobau/easter-wegg-hunt/issues"
+  },
+  "homepage": "https://github.com/jakobau/easter-wegg-hunt#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
