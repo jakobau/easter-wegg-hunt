@@ -2,9 +2,10 @@
   "name": "easter-wegg-hunt",
   "version": "1.0.0",
   "description": "Online easter egg hunt website platform for people and families that are social distancing! Find all the eggs in popular websites by solving riddles, puzzles, math problems, matching memes, and tapping randomly.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node-env-run routes --exec nodemon | pino-colada"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,12 @@
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "express-pino-logger": "^4.0.0",
+    "node-env-run": "^3.0.2",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "pino-colada": "^1.6.1"
   }
 }
