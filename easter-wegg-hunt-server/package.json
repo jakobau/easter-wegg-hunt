@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node-env-run routes --exec nodemon | pino-colada"
+    "server": "node-env-run routes --exec nodemon | pino-colada",
+    "dev": "run-p server && cd ../easter-wegg-hunt-client && run-p start"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,6 @@
     "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5",
     "pino-colada": "^1.6.1"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

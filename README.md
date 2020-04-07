@@ -4,4 +4,5 @@ Online easter egg hunt website platform for people and families that are social 
 ## Website Links
 -Kahoot clone: https://github.com/ethanbrimhall/kahoot-clone-nodejs<br />
 -socket.io+react+node guide: https://www.valentinog.com/blog/socket-react/<br />
--AWS with react+node guide: https://medium.com/@balghazi/deploying-react-node-js-application-to-amazon-ec2-instance-a89140ab6aab
+-AWS with react+node guide: https://medium.com/@balghazi/deploying-react-node-js-application-to-amazon-ec2-instance-a89140ab6aab<br />
+-Setting up a server proxy: https://www.twilio.com/blog/react-app-with-node-js-server-proxy
