@@ -1,0 +1,33 @@
+{
+  "name": "easter-wegg-hunt",
+  "version": "1.0.0",
+  "description": "\u0016Online easter egg hunt website platform for people and families that are social distancing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakobau/easter-wegg-hunt.git"
+  },
+  "keywords": [
+    "stay-home",
+    "easter-egg",
+    "reactjs",
+    "socket-io",
+    "nodejs"
+  ],
+  "author": "Jakob Au",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakobau/easter-wegg-hunt/issues"
+  },
+  "homepage": "https://github.com/jakobau/easter-wegg-hunt#readme",
+  "dependencies": {
+    "deparam": "^1.0.5",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "node": "^13.12.0",
+    "socket.io": "^2.3.0"
+  }
+}

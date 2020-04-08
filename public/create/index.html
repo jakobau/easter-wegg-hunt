@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" href = "css/index.css">
+  </head>
+  <body>
+    <main>
+      <h2 id = "title">Join this Game using the Game Pin: </h2>
+      <h1 id = "gamePinText"></h1>
+      <textarea style = "width: 700px; height: 500px;" readonly id='players'></textarea>
+      <button id = 'start' onclick = "startGame()">Start Game</button>
+      <button id = "cancel" onclick = "endGame()" href = "../">Cancel Game</button>
+    </main>
+    <script src = "../socket.io/socket.io.js"></script>
+    <script src = "../js/libs/jqueryLibrary.js"></script>
+    <script src = "../js/libs/deparam.js"></script>
+    <script src = "../js/create.js"></script>
+  </body>
+</html>
