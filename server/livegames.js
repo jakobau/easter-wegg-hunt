@@ -2,11 +2,13 @@ class LiveGames {
     constructor () {
         this.games = [];
     }
+
     addGame(pin, hostId, gameLive, gameData){
         var game = {pin, hostId, gameLive, gameData};
         this.games.push(game);
         return game;
     }
+
     removeGame(hostId){
         var game = this.getGame(hostId);
 
@@ -15,8 +17,13 @@ class LiveGames {
         }
         return game;
     }
+
     getGame(hostId){
-        return this.games.filter((game) => game.hostId === hostId)[0]
+      return this.games.filter((game) => game.hostId === hostId)[0]
+    }
+
+    getGames(){
+      return this.games;
     }
 }
 

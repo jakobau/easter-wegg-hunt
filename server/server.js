@@ -28,18 +28,36 @@ io.on('connection', (socket) => {
 
   //When host connects for the first time
   socket.on('host-join', (data) =>{
-    //if game found in database
-    var gamePin = Math.floor(Math.random()*90000) + 10000; //new pin for game
-    games.addGame(gamePin, socket.id, false, {playersAnswered: 0, questionLive: false, gameid: data.id, question: 1}); //Creates a game with pin and host id
+    console.log("host-join");
 
-    var game = games.getGame(socket.id); //Gets the game data
-    socket.join(game.pin);//The host is joining a room based on the pin
-    console.log('Game Created with pin:', game.pin, socket.id);
+    var isGame = false;
+    //if game found in array
+    for(var i = 0; i < games.getGames().length; i++){
+      if(games.games[i].pin === data.id) { //game already created
+        isGame = True;
+      }
+    }
 
-    //Sending game pin to host so they can display it for players to join
-    socket.emit('showGamePin', {
+    if (isGame) {
+      //Sending game pin and hostid to host so they can display it for players to join
+      socket.emit('showGamePin', {
+        pin: games.games[i].pin
+      });
+
+      console.log('Host rejoin game');
+
+    } else {
+      games.addGame(data.id, socket.id, false, {playersAnswered: 0, questionLive: false, gameid: data.id, question: 1}); //Creates a game with pin and host id
+      var game = games.getGame(socket.id); //Gets the game data
+      console.log('Game Created with pin:', game.pin, socket.id);
+
+      socket.join(game.pin);
+
+      //Sending game pin and hostid to host so they can display it for players to join
+      socket.emit('showGamePin', {
         pin: game.pin
-    });
+      });
+    }
 
     //else no game found in database
     /*}else{
@@ -47,11 +65,63 @@ io.on('connection', (socket) => {
     }*/
   });
 
+  //When the host connects from the game view
+  socket.on('host-join-game', (data) => {
+    console.log("host-join-game");
+    var oldHostId = data.id;
+    var game = games.getGame(oldHostId);//Gets game with old host id
+    socket.emit('showGamePin', {
+        pin: game.pin
+    });
+    if(game){
+        game.hostId = socket.id;//Changes the game host id to new host id
+        console.log("hostid changed");
+        //socket.join(game.pin);
+        var playerData = players.getPlayers(oldHostId);//Gets player in game
+        for(var i = 0; i < Object.keys(players.players).length; i++){
+            if(players.players[i].hostId == oldHostId){
+                players.players[i].hostId = socket.id;
+            }
+        }
+        var gameid = game.gameData['gameid'];
+        /*MongoClient.connect(url, function(err, db){
+            if (err) throw err;
+
+            var dbo = db.db('kahootDB');
+            var query = { id:  parseInt(gameid)};
+            dbo.collection("kahootGames").find(query).toArray(function(err, res) {
+                if (err) throw err;
+
+                var question = res[0].questions[0].question;
+                var answer1 = res[0].questions[0].answers[0];
+                var answer2 = res[0].questions[0].answers[1];
+                var answer3 = res[0].questions[0].answers[2];
+                var answer4 = res[0].questions[0].answers[3];
+                var correctAnswer = res[0].questions[0].correct;
+
+                socket.emit('gameQuestions', {
+                    q1: question,
+                    a1: answer1,
+                    a2: answer2,
+                    a3: answer3,
+                    a4: answer4,
+                    correct: correctAnswer,
+                    playersInGame: playerData.length
+                });
+                db.close();
+            });
+        });*/
+        io.to(game.pin).emit('gameStartedPlayer');
+        //game.gameData.questionLive = true;
+      }else{
+        socket.emit('noGameFound');//No game was found, redirect user
+      }
+    });
+
   //When player connects for the first time
   socket.on('player-join', (params) => {
-
+    console.log("player-join");
     var gameFound = false; //If a game is found with pin provided by player
-
     //For each game in the Games class
     for(var i = 0; i < games.games.length; i++){
       //If the pin is equal to one of the game's pin
@@ -70,16 +140,34 @@ io.on('connection', (socket) => {
     //If the game has not been found
     if(gameFound == false){
       console.log("no game found")
-        socket.emit('noGameFound'); //Player is sent back to 'join' page because game was not found with pin
+      socket.emit('noGameFound'); //Player is sent back to 'join' page because game was not found with pin
     }
+  });
+
+  //When the player connects from game view
+  socket.on('player-join-game', (data) => {
+    console.log("player-join-game");
+      var player = players.getPlayer(data.id);
+      if(player){
+          var game = games.getGame(player.hostId);
+          socket.join(game.pin);
+          player.playerId = socket.id;//Update player id with socket id
+
+          var playerData = players.getPlayers(game.hostId);
+          socket.emit('playerGameData', playerData);
+      }else{
+          socket.emit('noGameFound');//No player found
+      }
+
   });
 
   //When a host or player leaves the site
   socket.on('disconnect', () => {
-    console.log("a client has disconnected");
+    console.log("disconnect");
       var game = games.getGame(socket.id); //Finding game with socket.id
       //If a game hosted by that id is found, the socket disconnected is a host
       if(game){
+        console.log("a host has disconnected");
         //Checking to see if host was disconnected or was sent to game view
         if(game.gameLive == false){
           games.removeGame(socket.id);//Remove the game from games class
@@ -96,6 +184,7 @@ io.on('connection', (socket) => {
           socket.leave(game.pin); //Socket is leaving room
         }
       }else{
+        console.log("a player has disconnected");
         //No game has been found, so it is a player socket that has disconnected
         var player = players.getPlayer(socket.id); //Getting player with socket.id
         //If a player has been found with that id
@@ -118,8 +207,18 @@ io.on('connection', (socket) => {
 
   //When the host starts the game
   socket.on('startGame', () => {
+    console.log("startGame");
     var game = games.getGame(socket.id);//Get the game based on socket.id
     game.gameLive = true;
-    socket.emit('gameStarted', game.hostId);//Tell player and host that game has started
+    socket.emit('gameStarted', game.hostId);//Tell host that game has started
+  });
+
+  socket.on('time', function(data){
+    console.log("time");
+      var time = data.time / 20;
+      time = time * 100;
+      var playerid = data.player;
+      var player = players.getPlayer(playerid);
+      player.gameData.score += time;
   });
 });

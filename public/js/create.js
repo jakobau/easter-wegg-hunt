@@ -11,6 +11,7 @@ socket.on('connect', function(){
 
 socket.on('showGamePin', function(data){
    document.getElementById('gamePinText').innerHTML = data.pin;
+   //window.location.href = "/create/?id="+data.hostid;
 });
 
 //Adds player's name to screen and updates player count
@@ -33,7 +34,6 @@ function endGame(){
 
 //When server starts the game
 socket.on('gameStarted', function(id){
-    console.log('Game Started!');
     window.location.href="/create/game/" + "?id=" + id;
 });
 
