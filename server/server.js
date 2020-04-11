@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
       console.log('Host rejoin game');
 
     } else {
-      games.addGame(data.id, socket.id, false, {playersAnswered: 0, questionLive: false, gameid: data.id, question: 1}); //Creates a game with pin and host id
+      games.addGame(data.id, socket.id, false, [1,2], {gameid: data.id, eggsTotal: 2, eggsFound: 0}); //Creates a game with pin and host id
       var game = games.getGame(socket.id); //Gets the game data
       console.log('Game Created with pin:', game.pin, socket.id);
 
@@ -70,52 +70,52 @@ io.on('connection', (socket) => {
     console.log("host-join-game");
     var oldHostId = data.id;
     var game = games.getGame(oldHostId);//Gets game with old host id
+
     socket.emit('showGamePin', {
         pin: game.pin
     });
+
     if(game){
-        game.hostId = socket.id;//Changes the game host id to new host id
+        game.hostId = socket.id; //Changes the game host id to new host id
         console.log("hostid changed");
-        //socket.join(game.pin);
-        var playerData = players.getPlayers(oldHostId);//Gets player in game
+        socket.join(game.pin);
+        var playerData = players.getPlayers(oldHostId); //Gets player in game
         for(var i = 0; i < Object.keys(players.players).length; i++){
             if(players.players[i].hostId == oldHostId){
                 players.players[i].hostId = socket.id;
             }
         }
-        var gameid = game.gameData['gameid'];
-        /*MongoClient.connect(url, function(err, db){
-            if (err) throw err;
 
-            var dbo = db.db('kahootDB');
-            var query = { id:  parseInt(gameid)};
-            dbo.collection("kahootGames").find(query).toArray(function(err, res) {
-                if (err) throw err;
+        var playerNum = players.getPlayers(socket.id);
+        socket.emit('updateBoard', { //update host board
+          playersInGame: playerNum.length,
+          totalEggsLeft: (game.gameData.eggsTotal - game.gameData.eggsFound),
+          allPlayers: playerNum
+        });
 
-                var question = res[0].questions[0].question;
-                var answer1 = res[0].questions[0].answers[0];
-                var answer2 = res[0].questions[0].answers[1];
-                var answer3 = res[0].questions[0].answers[2];
-                var answer4 = res[0].questions[0].answers[3];
-                var correctAnswer = res[0].questions[0].correct;
-
-                socket.emit('gameQuestions', {
-                    q1: question,
-                    a1: answer1,
-                    a2: answer2,
-                    a3: answer3,
-                    a4: answer4,
-                    correct: correctAnswer,
-                    playersInGame: playerData.length
-                });
-                db.close();
-            });
-        });*/
         io.to(game.pin).emit('gameStartedPlayer');
-        //game.gameData.questionLive = true;
+
       }else{
-        socket.emit('noGameFound');//No game was found, redirect user
+        socket.emit('noGameFound'); //No game was found, redirect user
       }
+
+      setTimeout(function() {
+        console.log("game timer has run out!");
+        if(game) { //exit game
+          games.removeGame(socket.id);//Remove the game from games class
+          console.log('Game ended with pin:', game.pin);
+
+          var playersToRemove = players.getPlayers(game.hostId); //Getting all players in the game
+
+          //remove each player in the game
+          for(var i = 0; i < playersToRemove.length; i++){
+              players.removePlayer(playersToRemove[i].playerId);
+          }
+
+          io.to(game.pin).emit('GameOver'); //Send player back to 'score' screen
+          socket.leave(game.pin); //Socket is leaving room
+        }
+      }, 10000);
     });
 
   //When player connects for the first time
@@ -128,7 +128,7 @@ io.on('connection', (socket) => {
       if(params.pin == games.games[i].pin){
         var hostId = games.games[i].hostId; //Get the id of host of game
         console.log('Player connected to game data:', socket.id, params.name, hostId);
-        players.addPlayer(hostId, socket.id, params.name, {score: 0, answer: 0}); //add player to game
+        players.addPlayer(hostId, socket.id, params.name, {score: 0}); //add player to game
         socket.join(params.pin); //Player is joining room based on pin
 
         var playersInGame = players.getPlayers(hostId); //Getting all players in game
@@ -147,18 +147,67 @@ io.on('connection', (socket) => {
   //When the player connects from game view
   socket.on('player-join-game', (data) => {
     console.log("player-join-game");
-      var player = players.getPlayer(data.id);
-      if(player){
-          var game = games.getGame(player.hostId);
-          socket.join(game.pin);
-          player.playerId = socket.id;//Update player id with socket id
+    var player = players.getPlayer(data.id);
+    if(player){
+      var game = games.getGame(player.hostId);
+      socket.join(game.pin);
+      player.playerId = socket.id; //Update player id with socket id
 
-          var playerData = players.getPlayers(game.hostId);
-          socket.emit('playerGameData', playerData);
-      }else{
-          socket.emit('noGameFound');//No player found
+      var playerData = players.getPlayers(game.hostId);
+      socket.emit('playerGameData', playerData);
+    }else{
+      socket.emit('noGameFound'); //No player found
+    }
+  });
+
+  socket.on('playerFoundEgg', function(num){
+    console.log("player found egg");
+    var player = players.getPlayer(socket.id);
+    var hostId = player.hostId;
+    var playerNum = players.getPlayers(hostId);
+    var game = games.getGame(hostId);
+
+    console.log(game.gameLive, playerNum, players);
+
+    var validEgg = false;
+    if(game.gameLive == true){ //if the game is live
+        for(var i = 0; i < game.eggList.length; i++){ //check if egg is in eggList
+          if(game.eggList[i] === num) { //found egg id
+            game.eggList.splice(i, 1); //remove eggid from list
+            player.gameData.score += 1;
+            game.gameData.eggsFound += 1;
+
+            socket.emit('updatePlayerBoard', {eggnum: num}); //remove egg from player
+            socket.to(game.pin).emit('updatePlayerBoard', {eggnum: num}); //remove egg from all other players
+
+            validEgg = true;
+            console.log("found egg id, new score:", player.gameData.score);
+            break; //exit loop
+          }
+        }
+/*
+        if(validEgg) {
+          socket.emit('playerEggValid');
+        } else {
+          socket.emit('playerEggInvalid');
+        }
+*/
+        //Checks if all eggs found
+        if(game.gameData.eggsFound == game.gameData.eggsTotal){
+          game.gameLive = false;
+          //var playerData = players.getPlayers(game.hostId);
+          socket.emit('GameOver'); //tell player game is over
+          socket.to(game.pin).emit('GameOver'); //Tell everyone else and host that game is over
+        }
+
+        console.log("updating board");
+        //update host screen of num players answered
+        socket.to(hostId).emit('updateBoard', {
+          playersInGame: playerNum.length,
+          totalEggsLeft: (game.gameData.eggsTotal - game.gameData.eggsFound),
+          allPlayers: playerNum
+        });
       }
-
   });
 
   //When a host or player leaves the site

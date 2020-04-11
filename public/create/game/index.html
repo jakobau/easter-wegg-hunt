@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel = "stylesheet" href = "css/index.css">
+    <link rel = "stylesheet" href = "../../css/hostGame.css">
   </head>
-  <body>
+  <body onload="initializeClock(10)">
     <main>
+      <div id="message"></div>
+      <div id="back"><a href="../../">Go Back</a></div>
       <h1 id = "title">Game started! ID:</h1>
-      <span><h1 id = "gamePinText"></h1></span>
-      <h3><a>Snapchat</a></h3>
-      <h3><a>Instagram</a></h3>
-      <h3><a>Youtube</a></h3>
-      <h3><a>Google</a></h3>
+      <span><h1 id="gamePinText"></h1></span>
+      <h3>Time Left: <span id="time">--:--</span></h3>
+      <h3>Players in Game: <span id="totalPlayers">--</span></h3>
+      <h3>Total Eggs Left: <span id="eggsLeft">--</span></h3>
+      <h3>Golden Eggs Left: <span id="goldenLeft">--</span></h3>
+      <h3>Score Board (eggs, golden)</h3>
+      <hr>
+      <div id="scoreBoard"></div>
     </main>
     <script src = "../../socket.io/socket.io.js"></script>
     <script src = "../../js/libs/jqueryLibrary.js"></script>
