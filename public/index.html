@@ -2,24 +2,31 @@
 <html>
   <head>
     <link rel = "stylesheet" href = "css/index.css">
+    <link rel="stylesheet" href="/../css/bootstrap/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <main>
-      <h1>Easter Wegg Hunt<h1>
-      <button><h4><a onClick="hostGame()">Host a Game</a></h4></button>
-      <form action="/player/">
-        <div class="form-field">
-          <label id = "label">Display Name</label>
-          <input id = "name" type = "text" name="name" autofocus/>
-        </div>
-        <div class="form-field">
-          <label id = "label">Game Pin</label>
-          <input id = "pin" type="number" name="pin"/>
-        </div>
-        <div class="form-field">
-          <button id = "joinButton"><h4>Join a Game</h4></button>
-        </div>
-      </form>
+      <div class="container">
+        <h1 class="text-light">Easter Wegg Hunt<h1>
+        <form action="/player/">
+          <div class="form-group">
+            <label id = "label">Display Name</label>
+            <input class="form-control" id = "name" type="text" name="name" autofocus/>
+          </div>
+          <div class="form-group">
+            <label id = "label">Game Pin</label>
+            <input class="form-control" id = "pin" name="pin"/>
+          </div>
+          <div class="form-field">
+            <button class="btn" id="joinButton"><h4>Join a Game</h4></button>
+          </div>
+          <br>
+          <h5><a style="color: black;" onClick="hostGame()">Host a Game</a></h5>
+        </form>
+      </div>
     </main>
     <script src = "../js/init.js"></script>
   </body>

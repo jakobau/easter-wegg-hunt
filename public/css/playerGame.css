@@ -5,3 +5,16 @@
 #back {
   display: none;
 }
+
+#collapseExample, #collapseExample2 {
+  border: 1px solid blue;
+  padding: 5px;
+}
+
+#instagram {
+  display: none;
+}
+
+#divEgg1, #divEgg4, #divEgg8, #divEgg9, #divEgg10, #divEgg11, #divEgg12, #divEgg13, #divEgg14, #divEgg15 {
+  display: none;
+}

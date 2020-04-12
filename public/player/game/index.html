@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel = "stylesheet" href = "../../css/playerGame.css">
+    <link rel="stylesheet" href = "/../../css/index.css">
+    <link rel="stylesheet" href = "/../../css/playerGame.css">
+    <link rel="stylesheet" href = "/../../css/instagram.css">
+    <link rel="stylesheet" href="/../../css/bootstrap/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <script>
+    $(function(){
+      var includes = $('[data-include]');
+      jQuery.each(includes, function(){
+        var file = '../../pages/' + $(this).data('include') + '.html';
+        $(this).load(file);
+      });
+    });
+  </script>
   <body>
     <main>
       <div id="nameText"></div>
       <div id="scoreText"></div>
-      <div id="message"></div>
+      <h1><div id="message"></div></h1>
       <div id="back"><a href="../../">Go Back</a></div>
       <div id="main">
         <h1 id = "title">Find all the Easter Eggs!</h1>
         <h3><a>Snapchat</a></h3>
-        <h3><a>Instagram</a></h3>
+        <h3><a onclick="includeHTML('instagram')">Instagram</a></h3>
         <h3><a>Youtube</a></h3>
         <h3><a>Google</a></h3>
-        <h3><button onclick="foundEgg(1)" id="egg1">Egg</button></h3>
-        <h3><button onclick="foundEgg(2)" id="egg2">Egg2</button></h3>
+        <h3><span onclick="foundEgg(3)" id="egg3">&#x1f95a;</span></h3>
+        <h3><span onclick="foundEgg(2)" id="egg2">&#x1f95a;</span></h3>
+      </div>
+      <div id="screen">
+        <div id="instagram">
+          <div><a onclick="backToMenu()">back to menu</a></div>
+          <div data-include="instagram"></div>
+        </div>
       </div>
     </main>
 

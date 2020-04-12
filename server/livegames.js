@@ -3,8 +3,8 @@ class LiveGames {
         this.games = [];
     }
 
-    addGame(pin, hostId, gameLive, eggList, gameData){
-        var game = {pin, hostId, gameLive, eggList, gameData};
+    addGame(pin, hostId, gameLive, eggList, eggFoundList, gameData){
+        var game = {pin, hostId, gameLive, eggList, eggFoundList, gameData};
         this.games.push(game);
         return game;
     }

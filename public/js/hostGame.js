@@ -18,15 +18,15 @@ function initializeClock(sec){
   var timeinterval = setInterval(function(){
     var min = Math.floor(sec / 60);
     sec -= 1;
+    var secSec = sec - Math.floor(min * 60);
     if(sec<10) {
-      clock.innerHTML = min + ':0' + sec;
+      clock.innerHTML = min + ':0' + secSec;
     } else {
-      clock.innerHTML = min + ':' + sec;
+      clock.innerHTML = min + ':' + secSec;
     }
 
-
     if(sec <= 0){
-      clearInterval(timeinterval);
+      //clearInterval(timeinterval);
       gameOver();
     }
   },1000);
@@ -47,13 +47,13 @@ socket.on('updateBoard', function(data){
 });
 
 socket.on('GameOver', function(){
+  //clearInterval(timeinterval);
   gameOver();
 });
 
 function gameOver() {
-  //document.getElementById("main").style.display = "none";
-  //document.getElementById("time").style.display = "none";
-  document.getElementById('message').style.display = "block";
+  clearInterval(timeinterval);
+  document.getElementById('end').style.display = "none";
   document.getElementById('back').style.display = "block";
   document.getElementById('message').innerHTML = "GAME OVER";
 }

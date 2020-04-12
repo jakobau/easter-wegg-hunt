@@ -11,7 +11,6 @@ socket.on('connect', function(){
 
 socket.on('showGamePin', function(data){
    document.getElementById('gamePinText').innerHTML = data.pin;
-   //window.location.href = "/create/?id="+data.hostid;
 });
 
 //Adds player's name to screen and updates player count
@@ -20,7 +19,7 @@ socket.on('updatePlayerLobby', function(data){
     document.getElementById('players').value = "";
 
     for(var i = 0; i < data.length; i++){
-        document.getElementById('players').value += data[i].name + "\n";
+        document.getElementById('players').value = data[i].name + "\n" + document.getElementById('players').value;
     }
 });
 

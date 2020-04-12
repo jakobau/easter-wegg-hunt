@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel = "stylesheet" href = "css/index.css">
+    <title>Lobby</title>
+    <link rel = "stylesheet" href = "/../css/index.css">
+    <link rel="stylesheet" href="/../css/bootstrap/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <main>
-      <h2 id = "title">Join this Game using the Game Pin: </h2>
-      <h1 id = "gamePinText"></h1>
-      <textarea style = "width: 700px; height: 500px;" readonly id='players'></textarea>
-      <button id = 'start' onclick = "startGame()">Start Game</button>
-      <button id = "cancel" onclick = "endGame()" href = "../">Cancel Game</button>
+      <div class="container">
+        <h2 id = "title">Join using the Game Pin: <strong id="gamePinText"></strong></h2>
+        <div class="form-group">
+          <textarea class="form-control" style="font-size: 18px; height: 300px;" readonly id='players'></textarea>
+        </div>
+        <div class="form-field">
+          <button id='start' onclick="startGame()">Start Game</button>
+          <button id="cancel" onclick="endGame()" href="../">Cancel Game</button>
+        </div>
+      </div>
     </main>
     <script src = "../socket.io/socket.io.js"></script>
     <script src = "../js/libs/jqueryLibrary.js"></script>

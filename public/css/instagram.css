@@ -38,7 +38,7 @@ img {
     padding: 0 2rem;
 }
 
-.btn {
+#insta-profile-button {
     display: inline-block;
     font: inherit;
     background: none;
@@ -79,10 +79,14 @@ img {
     justify-content: center;
     align-items: center;
     margin-right: 3rem;
+    width: 50px;
+    height: auto;
 }
 
 .profile-image img {
-    border-radius: 50%;
+    border-radius: 60%;
+    width: 50px;
+    height: auto;
 }
 
 .profile-user-settings,

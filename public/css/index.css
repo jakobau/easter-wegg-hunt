@@ -1,0 +1,37 @@
+main {
+   padding: 20px;
+}
+
+html, body {
+    height: 100%;
+    color: white;
+    background: -webkit-linear-gradient(118deg, #25fffd, #e714ed, #f2ff00, #ff0000);
+    background: -o-linear-gradient(118deg, #25fffd, #e714ed, #f2ff00, #ff0000);
+    background: linear-gradient(208deg, #25fffd, #e714ed, #f2ff00, #ff0000);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 59s ease infinite;
+    -moz-animation: AnimationName 59s ease infinite;
+    -o-animation: AnimationName 59s ease infinite;
+    animation: AnimationName 59s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:27% 0%}
+    50%{background-position:74% 100%}
+    100%{background-position:27% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:27% 0%}
+    50%{background-position:74% 100%}
+    100%{background-position:27% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:27% 0%}
+    50%{background-position:74% 100%}
+    100%{background-position:27% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:27% 0%}
+    50%{background-position:74% 100%}
+    100%{background-position:27% 0%}
+}

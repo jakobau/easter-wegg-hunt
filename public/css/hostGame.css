@@ -1,7 +1,7 @@
-#message {
+#message, #back {
   display: none;
 }
 
-#back {
-  display: none;
+#scoreBoard {
+  border: 1px solid white;
 }

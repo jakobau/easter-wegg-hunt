@@ -2,8 +2,8 @@ class Players {
   constructor () {
       this.players = [];
   }
-  addPlayer(hostId, playerId, name, gameData){
-      var player = {hostId, playerId, name, gameData};
+  addPlayer(hostId, playerId, playerIdFirst, name, gameData){
+      var player = {hostId, playerId, playerIdFirst, name, gameData};
       this.players.push(player);
       return player;
   }
@@ -17,6 +17,9 @@ class Players {
   }
   getPlayer(playerId){
     return this.players.filter((player) => player.playerId === playerId)[0]
+  }
+  getPlayerFirstId(playerId){
+    return this.players.filter((player) => player.playerIdFirst === playerId)[0]
   }
   getPlayers(hostId){
     return this.players.filter((player) => player.hostId === hostId);

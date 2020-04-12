@@ -2,284 +2,175 @@
 <html>
   <head>
     <link rel = "stylesheet" href = "../css/instagram.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <header>
-
     	<div class="container">
-
     		<div class="profile">
-
-    			<div class="profile-image">
-
-    				<img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
-
+    			<div onclick="showEgg(13)" class="profile-image">
+    				<img src="../../pictures/funnybunny.jpg" alt="">
     			</div>
-
     			<div class="profile-user-settings">
-
-    				<h1 class="profile-user-name">janedoe_</h1>
-
-    				<button class="btn profile-edit-btn">Edit Profile</button>
-
-    				<button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
-
+    				<h1 onclick="showEgg(10)" class="profile-user-name">funny_bunny_joe_</h1>
+    				<button class="btn profile-edit-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Edit Profile</button>
+    				<button id="insta-profile-button" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
     			</div>
-
     			<div class="profile-stats">
-
     				<ul>
-    					<li><span class="profile-stat-count">164</span> posts</li>
-    					<li><span class="profile-stat-count">188</span> followers</li>
-    					<li><span class="profile-stat-count">206</span> following</li>
+    					<li><span onclick="showEgg(9)" class="profile-stat-count">164</span> posts</li>
+    					<li><span onclick="showEgg(8)" class="profile-stat-count">188</span> followers</li>
+    					<li><span onclick="showEgg(4)" class="profile-stat-count">206</span> following</li>
     				</ul>
-
     			</div>
-
     			<div class="profile-bio">
-
-    				<p><span class="profile-real-name">Jane Doe</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
-
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                What has to be broken before you can use it? An <span id="ans1">___</span>.
+                <input class="form-control form-control-sm" type="text" placeholder="Hint: 3 letters" id="1" required/>
+                <button id="check1" onclick="answerQ(1)">&#10004;&#65039;</button>
+                <span id="divEgg1"><span id="egg1" onclick="foundEgg(1)">&#x1f95a;</span></span>
+              </div>
+            </div>
+    				<p><span class="profile-real-name" onclick="showEgg(14)">Funny Bunny</span> Warning! You are now entering the Bunny Zone ⌒(ㅇㅅㅇ❀)⌒<span id="divEgg6"><span id="egg6" onclick="foundEgg(6)">&#x1f95a;</span></span></p>
     			</div>
-
     		</div>
     		<!-- End of profile section -->
-
+        <span id="divEgg4"><span id="egg4" onclick="foundEgg(4)">&#x1f95a;</span></span>
+        <span id="divEgg10"><span id="egg10" onclick="foundEgg(10)">&#x1f95a;</span></span>
+        <span id="divEgg13"><span id="egg13" onclick="foundEgg(13)">&#x1f95a;</span></span>
+        <span id="divEgg14"><span id="egg14" onclick="foundEgg(14)">&#x1f95a;</span></span>
+        <span id="divEgg15"><span id="egg15" onclick="foundEgg(15)">&#x1f95a;</span></span>
     	</div>
     	<!-- End of container -->
-
     </header>
-
     <main>
-
     	<div class="container">
-
     		<div class="gallery">
-
     			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    				<img src="../../pictures/bun1.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
-
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i><span id="divEgg5"><span id="egg5" onclick="foundEgg(5)">&#x1f95a;</span></span></li>
     						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
     					</ul>
-
     				</div>
-
     			</div>
-
     			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    				<img src="../../pictures/bun2.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
-
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 89</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> <button class="btn profile-edit-btn" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false">89</button></li>
     						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 5</li>
     					</ul>
-
     				</div>
-
     			</div>
 
-    			<div class="gallery-item" tabindex="0">
+          <div class="collapse" id="collapseExample2">
+            <div class="card card-body">
+              What has many keys but can't open a single lock? a <span id="ans7">___</span>.
+              <input class="form-control form-control-sm" type="text" placeholder="Hint: 5 letters" id="7" required/>
+              <button id="check7" onclick="answerQ(7)">&#10004;&#65039;</button>
+              <span id="divEgg7"><span id="egg7" onclick="foundEgg(7)">&#x1f95a;</span></span>
+            </div>
+          </div>
 
-    				<img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    			<div onclick="showEgg(11)" class="gallery-item" tabindex="0">
+    				<img src="../../pictures/bun3.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-type">
-
     					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
     				</div>
-
     				<div class="gallery-item-info">
-
     					<ul>
     						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 42</li>
     						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
     					</ul>
-
     				</div>
-
     			</div>
+          <span id="divEgg11"><span id="egg11" onclick="foundEgg(11)">&#x1f95a;</span></span>
 
     			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1502630859934-b3b41d18206c?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    				<img src="../../pictures/bun4.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-type">
-
     					<span class="visually-hidden">Video</span><i class="fas fa-video" aria-hidden="true"></i>
-
     				</div>
-
     				<div class="gallery-item-info">
-
     					<ul>
     						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 38</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> <button class="btn profile-edit-btn" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false">0</button></li>
     					</ul>
-
     				</div>
-
     			</div>
 
+          <div class="collapse" id="collapseExample3">
+            <div class="card card-body">
+              823x3x5 = <span id="ans12">___</span>?.
+              <input class="form-control form-control-sm" type="text" placeholder="Hint: 5 numbers" id="12" required/>
+              <button id="check12" onclick="answerQ(12)">&#10004;&#65039;</button>
+              <span id="divEgg12"><span id="egg12" onclick="foundEgg(12)">&#x1f95a;</span></span>
+            </div>
+          </div>
+
     			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1498471731312-b6d2b8280c61?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    				<img src="../../pictures/bun5.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-type">
-
     					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
     				</div>
-
     				<div class="gallery-item-info">
-
     					<ul>
     						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 47</li>
     						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
     					</ul>
-
     				</div>
-
     			</div>
 
     			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1515023115689-589c33041d3c?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    				<img src="../../pictures/bun6.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
-
     					<ul>
     						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 94</li>
     						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 3</li>
     					</ul>
-
     				</div>
-
     			</div>
 
     			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    				<img src="../../pictures/bun7.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-type">
-
     					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
     				</div>
-
     				<div class="gallery-item-info">
-
     					<ul>
     						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 52</li>
     						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 4</li>
     					</ul>
-
     				</div>
-
     			</div>
 
-    			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1515814472071-4d632dbc5d4a?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
+    			<div onclick="showEgg(15)" class="gallery-item" tabindex="0">
+    				<img src="../../pictures/bun8.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
-
     					<ul>
     						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 66</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> <span id="divEgg9"><span id="egg9" onclick="foundEgg(9)">&#x1f95a;</span></span></li>
     					</ul>
-
     				</div>
-
     			</div>
 
     			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1511407397940-d57f68e81203?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-    				<div class="gallery-item-type">
-
-    					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
-    				</div>
-
+    				<img src="../../pictures/bun10.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
-
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 45</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
-    					</ul>
-
-    				</div>
-
-    			</div>
-
-    			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-    				<div class="gallery-item-info">
-
-    					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 34</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> <span id="divEgg8"><span id="egg8" onclick="foundEgg(8)">&#x1f95a;</span></span></li>
     						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
     					</ul>
-
     				</div>
-
     			</div>
-
-    			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1505058707965-09a4469a87e4?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-    				<div class="gallery-item-info">
-
-    					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 41</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
-    					</ul>
-
-    				</div>
-
-    			</div>
-
-    			<div class="gallery-item" tabindex="0">
-
-    				<img src="https://images.unsplash.com/photo-1423012373122-fff0a5d28cc9?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-    				<div class="gallery-item-type">
-
-    					<span class="visually-hidden">Video</span><i class="fas fa-video" aria-hidden="true"></i>
-
-    				</div>
-
-    				<div class="gallery-item-info">
-
-    					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 30</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
-    					</ul>
-
-    				</div>
-
-    			</div>
-
     		</div>
     		<!-- End of gallery -->
-
     		<div class="loader"></div>
-
     	</div>
     	<!-- End of container -->
-
     </main>
   </body>
 </html>
