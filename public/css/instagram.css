@@ -20,6 +20,64 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     box-sizing: border-box;
 }
 
+li .icon {
+  display: inline;
+  width: 35px;
+  height: auto;
+  filter: invert(100%);
+  -webkit-filter:invert(100%);
+}
+
+li .icon2 {
+  display: inline;
+  width: 25px;
+  height: auto;
+  filter: invert(100%);
+  -webkit-filter:invert(100%);
+}
+
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 11000000;
+    transform: translateX(-50%);
+    left: 50%;
+    text-align: center;
+    background-color: white;
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 11000000;
+    transform: translateX(-50%);
+    left: 50%;
+    text-align: center;
+    background-color: white;
+}
+
+#button {
+  border: 1px solid black;
+}
+
+.footer-icon {
+  display: inline;
+  width: 25px;
+  height: auto;
+  margin: 5px 15px 5px 15px;
+}
+
+#footer-profile {
+  border-radius: 60%;
+}
+
+#instagram-logo {
+  height: 30px;
+  width: auto;
+}
+
 body {
     font-family: "Open Sans", Arial, sans-serif;
     min-height: 100vh;

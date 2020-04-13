@@ -6,15 +6,36 @@
   display: none;
 }
 
-#collapseExample, #collapseExample2 {
+#collapseExample, #collapseExample2, #collapseExample3, #collapseExample4, #collapseExample5, #collapseExample6 {
   border: 1px solid blue;
   padding: 5px;
 }
 
-#instagram {
+#collapseExample7, #collapseExample8, #collapseExample9 {
+  border: 1px solid blue;
+  padding: 5px;
+}
+
+#instagram, #instagram2 {
   display: none;
 }
 
-#divEgg1, #divEgg4, #divEgg8, #divEgg9, #divEgg10, #divEgg11, #divEgg12, #divEgg13, #divEgg14, #divEgg15 {
+#divEgg1, #divEgg4, #divEgg7, #divEgg8, #divEgg9, #divEgg10, #divEgg11, #divEgg12, #divEgg13, #divEgg14, #divEgg15 {
+  display: none;
+}
+
+#divEgg16, #divEgg17, #divEgg18, #divEgg19, #divEgg20, #divEgg21, #divEgg22 {
+  display: none;
+}
+
+#divEgg23, #divEgg24, #divEgg26, #divEgg27, #divEgg28, #divEgg29, #divEgg30 {
+  display: none;
+}
+
+#divEgg32, #divEgg33, #divEgg34, #divEgg35, #divEgg36, #divEgg37 {
+  display: none;
+}
+
+#divEgg38, #divEgg39 {
   display: none;
 }

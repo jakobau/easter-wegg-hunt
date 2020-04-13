@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
       console.log('Host rejoin game');
 
     } else {
-      var totalEggs = 15;
+      var totalEggs = 39;
       var numEggList = new Array();
       for(var i=1; i<=totalEggs; i++){
         numEggList.push(i);
@@ -193,8 +193,6 @@ io.on('connection', (socket) => {
     var playerNum = players.getPlayers(hostId);
     var game = games.getGame(hostId);
 
-    console.log(game.gameLive, playerNum, players);
-
     var validEgg = false;
     if(game.gameLive == true){ //if the game is live
         for(var i = 0; i < game.eggList.length; i++){ //check if egg is in eggList
@@ -294,12 +292,8 @@ io.on('connection', (socket) => {
     socket.emit('gameStarted', game.hostId);//Tell host that game has started
   });
 
-  socket.on('time', function(data){
-    console.log("time");
-      var time = data.time / 20;
-      time = time * 100;
-      var playerid = data.player;
-      var player = players.getPlayer(playerid);
-      player.gameData.score += time;
+  socket.on('playerSolvedQuestion', function(data){
+    console.log("player solved a question");
+    socket.to(data.pin).emit('updatePlayerQuestion', {num: data.num}); //update question from all other players
   });
 });

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <footer class="sticky-header">
+      <img src="../../pictures/camera.png" class="footer-icon" id="footer-heart" alt="" style="float: left;">
+      <img src="../../pictures/instagram2.png" class="footer-icon" id="instagram-logo" alt="">
+      <img src="../../pictures/plane.png" class="footer-icon" id="footer-heart" alt="" style="float: right;">
+    </footer>
     <header>
     	<div class="container">
     		<div class="profile">
@@ -13,13 +18,13 @@
     			</div>
     			<div class="profile-user-settings">
     				<h1 onclick="showEgg(10)" class="profile-user-name">funny_bunny_joe_</h1>
-    				<button class="btn profile-edit-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Edit Profile</button>
+    				<button id="button" class="btn profile-edit-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Edit Profile</button>
     				<button id="insta-profile-button" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
     			</div>
     			<div class="profile-stats">
     				<ul>
-    					<li><span onclick="showEgg(9)" class="profile-stat-count">164</span> posts</li>
-    					<li><span onclick="showEgg(8)" class="profile-stat-count">188</span> followers</li>
+    					<li><span class="profile-stat-count">9</span> posts</li>
+    					<li><span class="profile-stat-count">188</span> followers</li>
     					<li><span onclick="showEgg(4)" class="profile-stat-count">206</span> following</li>
     				</ul>
     			</div>
@@ -41,6 +46,16 @@
         <span id="divEgg13"><span id="egg13" onclick="foundEgg(13)">&#x1f95a;</span></span>
         <span id="divEgg14"><span id="egg14" onclick="foundEgg(14)">&#x1f95a;</span></span>
         <span id="divEgg15"><span id="egg15" onclick="foundEgg(15)">&#x1f95a;</span></span>
+        <span id="divEgg20"><span id="egg20" onclick="foundEgg(20)">&#x1f95a;</span></span>
+
+        <div class="collapse" id="collapseExample6">
+          <div class="card card-body">
+            It belongs to you, but other people use it more than you do. What is it? Your <span id="ans22">____</span>.
+            <input class="form-control form-control-sm" type="text" placeholder="Hint: 4 letters" id="22" required/>
+            <button id="check22" onclick="answerQ(22)">&#10004;&#65039;</button>
+            <span id="divEgg22"><span id="egg22" onclick="foundEgg(22)">&#x1f95a;</span></span>
+          </div>
+        </div>
     	</div>
     	<!-- End of container -->
     </header>
@@ -51,8 +66,8 @@
     				<img src="../../pictures/bun1.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i><span id="divEgg5"><span id="egg5" onclick="foundEgg(5)">&#x1f95a;</span></span></li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt=""><span id="divEgg5"><span id="egg5" onclick="foundEgg(5)">&#x1f95a;</span></li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt=""><button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample6" aria-expanded="false">2</button></li>
     					</ul>
     				</div>
     			</div>
@@ -60,8 +75,8 @@
     				<img src="../../pictures/bun2.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> <button class="btn profile-edit-btn" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false">89</button></li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 5</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt=""><button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false">89</button></li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> <img src="../../pictures/comment.png" class="icon" alt="">5</li>
     					</ul>
     				</div>
     			</div>
@@ -82,25 +97,27 @@
     				</div>
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 42</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt=""> 42</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt="">1</li>
     					</ul>
     				</div>
     			</div>
           <span id="divEgg11"><span id="egg11" onclick="foundEgg(11)">&#x1f95a;</span></span>
 
-    			<div class="gallery-item" tabindex="0">
+    			<div onclick="showEgg(21)" class="gallery-item" tabindex="0">
     				<img src="../../pictures/bun4.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-type">
     					<span class="visually-hidden">Video</span><i class="fas fa-video" aria-hidden="true"></i>
     				</div>
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 38</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> <button class="btn profile-edit-btn" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false">0</button></li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt="">38</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt=""><button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false">0</button></li>
     					</ul>
     				</div>
     			</div>
+
+          <span id="divEgg21"><span id="egg21" onclick="foundEgg(21)">&#x1f95a;</span></span>
 
           <div class="collapse" id="collapseExample3">
             <div class="card card-body">
@@ -118,21 +135,39 @@
     				</div>
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 47</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt=""><button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false">47</button></li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt="">1</li>
     					</ul>
     				</div>
     			</div>
+
+          <div class="collapse" id="collapseExample4">
+            <div class="card card-body">
+              I'm light as a feather yet the strongest person can't hold me for ive minutes. What am i? Your <span id="ans17">______</span>.
+              <input class="form-control form-control-sm" type="text" placeholder="Hint: 6 letters" id="17" required/>
+              <button id="check17" onclick="answerQ(17)">&#10004;&#65039;</button>
+              <span id="divEgg17"><span id="egg17" onclick="foundEgg(17)">&#x1f95a;</span></span>
+            </div>
+          </div>
 
     			<div class="gallery-item" tabindex="0">
     				<img src="../../pictures/bun6.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 94</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 3</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt="">94</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt=""><button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample5" aria-expanded="false">3</button></li>
     					</ul>
     				</div>
     			</div>
+
+          <div class="collapse" id="collapseExample5">
+            <div class="card card-body">
+              What gets bigger when more is taken away? A <span id="ans18">____</span>.
+              <input class="form-control form-control-sm" type="text" placeholder="Hint: 4 letters" id="18" required/>
+              <button id="check18" onclick="answerQ(18)">&#10004;&#65039;</button>
+              <span id="divEgg18"><span id="egg18" onclick="foundEgg(18)">&#x1f95a;</span></span>
+            </div>
+          </div>
 
     			<div class="gallery-item" tabindex="0">
     				<img src="../../pictures/bun7.jpg" class="gallery-image" alt="">
@@ -141,35 +176,47 @@
     				</div>
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 52</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 4</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt="">52</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt="">4</li>
     					</ul>
     				</div>
     			</div>
+
+          <span id="divEgg9"><span id="egg9" onclick="foundEgg(9)">&#x1f95a;</span></span>
 
     			<div onclick="showEgg(15)" class="gallery-item" tabindex="0">
     				<img src="../../pictures/bun8.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 66</li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> <span id="divEgg9"><span id="egg9" onclick="foundEgg(9)">&#x1f95a;</span></span></li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt="">66</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt="" onclick="showEgg(9)">1</li>
     					</ul>
     				</div>
     			</div>
 
-    			<div class="gallery-item" tabindex="0">
+          <span id="divEgg8"><span id="egg8" onclick="foundEgg(8)">&#x1f95a;</span></span>
+
+    			<div onclick="showEgg(8)" class="gallery-item" tabindex="0">
     				<img src="../../pictures/bun10.jpg" class="gallery-image" alt="">
     				<div class="gallery-item-info">
     					<ul>
-    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> <span id="divEgg8"><span id="egg8" onclick="foundEgg(8)">&#x1f95a;</span></span></li>
-    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
+    						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><img src="../../pictures/heart.png" class="icon2" alt="">12</li>
+    						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><img src="../../pictures/comment.png" class="icon" alt="">1</li>
     					</ul>
     				</div>
     			</div>
     		</div>
     		<!-- End of gallery -->
-    		<div class="loader"></div>
     	</div>
+      <span id="divEgg16"><span id="egg16" onclick="foundEgg(16)">&#x1f95a;</span></span>
+      <span id="divEgg19"><span id="egg19" onclick="foundEgg(19)">&#x1f95a;</span></span>
+      <footer class="sticky-footer">
+        <span><img onclick="showEgg(16)" src="../../pictures/home.png" class="footer-icon" id="footer-heart" alt=""></span>
+        <span><img onclick="showEgg(19)" src="../../pictures/search.png" class="footer-icon" id="footer-heart" alt=""></span>
+        <span><img src="../../pictures/middle.png" class="footer-icon" id="footer-heart" alt=""></span>
+        <span><img onclick="showEgg(20)" src="../../pictures/heart.png" class="footer-icon" id="footer-heart" alt=""></span>
+        <span><img src="../../pictures/funnybunny.jpg" class="footer-icon" id="footer-profile" alt=""></span>
+      </footer>
     	<!-- End of container -->
     </main>
   </body>

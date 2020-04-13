@@ -3,7 +3,7 @@ main {
 }
 
 html, body {
-    height: 100%;
+    height: 120%;
     color: white;
     background: -webkit-linear-gradient(118deg, #25fffd, #e714ed, #f2ff00, #ff0000);
     background: -o-linear-gradient(118deg, #25fffd, #e714ed, #f2ff00, #ff0000);
