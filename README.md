@@ -12,5 +12,5 @@ Link: http://egghunt.jakobau.me:3000/
 ### Source code
 -Instagram profile html/css from: https://codepen.io/GeorgePark/pen/VXrwOP
 
-#### Detailed Instructions
+## Detailed Instructions
 Game is a lot like kahoot. Enter your host's game pin and a display name to join a game. Wait for the host to start the game then find all the eggs before the time runs out. Make sure to find them before other players because the eggs will dissapear!
