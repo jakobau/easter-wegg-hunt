@@ -1,7 +1,7 @@
 # easter-wegg-hunt
 Online easter egg hunt website platform for families and communities that are at home social distancing! Find hidden eggs by solving riddles, puzzles, math problems, matching memes, and even getting up and moving around. There are lots of suprises in store!
 
-Link: http://egghunt.jakobau.me:3000/
+Link: http://egghunt.jakobau.me
 
 ## Website Links (notes for me)
 -Kahoot clone: https://github.com/ethanbrimhall/kahoot-clone-nodejs<br />
