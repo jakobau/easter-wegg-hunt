@@ -19,7 +19,7 @@ app.use(express.static(publicPath));
 
 //Starting server on port 3000
 server.listen(3000, () => {
-    console.log("Server started on port 3000");
+  console.log("Server started on port 3000");
 });
 
 //When a connection to server is made from client
@@ -77,7 +77,7 @@ io.on('connection', (socket) => {
     var game = games.getGame(oldHostId); //Gets game with old host id
 
     socket.emit('showGamePin', {
-        pin: game.pin
+      pin: game.pin
     });
 
     if(game){
@@ -86,9 +86,9 @@ io.on('connection', (socket) => {
         socket.join(game.pin);
         var playerData = players.getPlayers(oldHostId); //Gets player in game
         for(var i = 0; i < Object.keys(players.players).length; i++){
-            if(players.players[i].hostId == oldHostId){
-                players.players[i].hostId = socket.id;
-            }
+          if(players.players[i].hostId == oldHostId){
+            players.players[i].hostId = socket.id;
+          }
         }
 
         var playerNum = players.getPlayers(socket.id);
@@ -114,7 +114,7 @@ io.on('connection', (socket) => {
 
           //remove each player in the game
           for(var i = 0; i < playersToRemove.length; i++){
-              players.removePlayer(playersToRemove[i].playerId);
+            players.removePlayer(playersToRemove[i].playerId);
           }
 
           io.to(game.pin).emit('GameOver'); //Send player back to 'score' screen
@@ -248,7 +248,7 @@ io.on('connection', (socket) => {
       if(game){
         console.log("a host has disconnected");
         //Checking to see if host was disconnected or was sent to game view
-        if(game.gameLive == false){
+        if(game.gameLive == false) {
           games.removeGame(socket.id);//Remove the game from games class
           console.log('Game ended with pin:', game.pin);
 
@@ -256,7 +256,7 @@ io.on('connection', (socket) => {
 
           //For each player in the game
           for(var i = 0; i < playersToRemove.length; i++){
-              players.removePlayer(playersToRemove[i].playerId); //Removing each player from player class
+            players.removePlayer(playersToRemove[i].playerId); //Removing each player from player class
           }
 
           io.to(game.pin).emit('hostDisconnect'); //Send player back to 'join' screen
