@@ -16,7 +16,8 @@
     "easter-egg",
     "reactjs",
     "socket-io",
-    "nodejs"
+    "nodejs",
+    "Heroku"
   ],
   "author": "Jakob Au",
   "license": "ISC",

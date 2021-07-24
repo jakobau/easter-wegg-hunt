@@ -35,3 +35,13 @@ html, body {
     50%{background-position:74% 100%}
     100%{background-position:27% 0%}
 }
+
+#message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#inner-message {
+    margin: 0 auto;
+}

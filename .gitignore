@@ -4,3 +4,7 @@ node_modules/
 package.sublime-workspace
 
 .DS_Store
+
+server.key
+server.pass.key
+server.csr
