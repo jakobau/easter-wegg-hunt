@@ -13,12 +13,14 @@ var io = socketIO(server);
 var games = new LiveGames();
 var players = new Players();
 
+const port = process.env.PORT || 3000;
+
 //TODO:: setup database
 
 app.use(express.static(publicPath));
 
 //Starting server on port 3000
-server.listen(3000, () => {
+server.listen(port, () => {
   console.log("Server started on port 3000");
 });
 
