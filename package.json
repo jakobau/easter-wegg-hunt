@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "\u0016Online easter egg hunt website platform for people and families that are social distancing.",
   "main": "index.js",
+  "start": "node server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js"
