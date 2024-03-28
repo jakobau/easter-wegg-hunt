@@ -28,7 +28,7 @@
   "homepage": "https://github.com/jakobau/easter-wegg-hunt#readme",
   "dependencies": {
     "deparam": "^1.0.5",
-    "express": "^4.17.1",
+    "express": "^4.19.2",
     "jquery": "^3.5.1",
     "node": "^13.12.0",
     "socket.io": "^2.3.0"
